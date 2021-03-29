@@ -1,0 +1,28 @@
+## LOG IN PAGE  [COMPLETE]
+
+1. Desgin UI [X]
+2. Import firebase and firebase auth [X]
+3. Do sign IN [X]
+    1. create proivder [X]
+    2. and setup sign in success (then) && failure (catch), & display error message [X]
+4. after sign in, or after already signed in, redirect to orders PAGE [X]
+
+
+## CATEGORIES
+
+1. Import firebase & vue app & firestore
+    1. check if not logged in, redirect to login page, handle errors
+2. Create table (design ui)
+    1. add name,id,desc
+    2. add name validation
+    3. generate id from name
+3. Create functions
+    1. add row to table
+    2. delete row
+    3. save table to firestore
+4. Fetch from database, and set to table
+
+
+
+
+

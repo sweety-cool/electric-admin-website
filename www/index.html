@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Electric</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 style="text-align: center;">Modern Electric Bagnan</h1>
+        </div>
+    </header>
+    <div class="container" style="text-align: center;padding-top: 10rem;"> 
+        <input type="button" value="Log In With Google" onclick="signIN();"/>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+<script src="functions.js"></script>
+<script src="app.js"></script>
+
+<script>
+
+// Google Sign IN provider
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+
+// Sign In function
+function signIN(){
+    firebase.auth().signInWithPopup(provider)
+        // Then is fired if sign in was success
+        .then((result)=>{
+            window.location.href="/orders/";
+        })
+        // catch will be fired if sign in was error
+        .catch((error)=>{
+            alert("An error occured, please try again !")
+            console.log(error);
+        });
+}
+
+// Check If user is logged in already, 
+// if user then redirect to orders page, 
+// else do nothing (stay on page)
+firebase.auth().onAuthStateChanged((user) => {
+    if(user){
+        window.location.href="/orders/";
+    }
+});
+
+</script>
+
+</html>

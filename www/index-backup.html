@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 style="text-align: center;">Modern Electric Bagnan</h1>
+        </div>
+    </header>
+
+
+    <div id="main-vue-app">
+
+        <div v-if="isLoggedIn">
+            <r-grid columns=12 style="grid-gap: 0;">
+
+                <r-cell span=2 class="sidebar">
+                    <input type="button" value="Orders" onclick="ordersMenuClicked();">
+                    <input type="button" value="Items" onclick="itemsMenuClicked();">
+                    <input type="button" value="Categories" onclick="categoriesMenuClicked();">
+                </r-cell>
+
+                <r-cell span=10 class="main">
+
+                    <div v-if="menuSelection == 1" id="main_orders">
+                        <h2>Orders Received</h2>
+                    </div>
+
+                    <div v-if="menuSelection == 2" id="main_items">
+                        <h2>Items for sale</h2>
+                    </div>
+
+                    <div v-if="menuSelection == 3" id="main_categories">
+                        <h2>Categories</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>ID</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="cat,index in categories" v-bind:key="cat.id">
+                                    <td><input type="text" v-model.trim="cat.name" /></td>
+                                    <td><input type="text" v-model.trim="cat.desc" /></td>
+                                    <td><input type="text" v-model.trim="cat.id" disabled /></td>
+                                    <td><div class="delete-button" @click="deleteCategory(index)">⌫</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="text-align: right;">
+                            <input type="button" value="    + Add Category   " onclick="addCategory();">
+                            &nbsp;&nbsp;&nbsp;
+                            <input type="button" value="    Save    " onclick="saveCategories();">
+                        </div>
+                    </div>
+
+                </r-cell>
+
+            </r-grid>
+        </div>
+
+        <div v-else>
+            <div class="container" style="text-align: center;">
+                <input type="button" value="Log In With Google" onclick="signIN();"/>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="functions.js"></script>
+<script src="app.js"></script>
+
+</html>

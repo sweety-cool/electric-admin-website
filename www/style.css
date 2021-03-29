@@ -1,0 +1,122 @@
+@import url('https://cdn.jsdelivr.net/npm/normalize.css');
+@import url('https://rsms.me/raster/raster2.css?v=20');
+
+/* Box Model */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+}
+
+header {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+header * {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.container.wide {
+    max-width: 1040px;
+}
+
+input {
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    background-color: #eee;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    font-size: var(--h3-size);
+    padding: 0.5em 1em;
+    width: 100%;
+    margin-bottom: calc(var(--lineHeight) * 1.5);
+}
+
+input:hover,
+input:focus {
+    border-color: #444;
+}
+
+input[type='submit'],
+input[type='button'] {
+    width: auto;
+    background: #000;
+    border-color: #000;
+    color: #fff;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+input[type='button']:hover,
+input[type='button']:focus,
+input[type='submit']:hover,
+input[type='submit']:focus {
+    background: #fff;
+    color: #000;
+}
+
+p,
+li {
+    font-size: var(--h3-size);
+    line-height: calc(var(--lineHeight) * 1.4);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #c0c0c0;
+    position: sticky;
+    top: 0;
+    background: #000;
+    color: #fff;
+}
+
+.menu>span {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menu>span.active {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+.delete-button {
+    font-size: 1.7rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+}
+
+.delete-button:hover,
+.delete-button:focus {
+    transform: scale(1.2);
+}
